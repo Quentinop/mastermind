@@ -1,43 +1,51 @@
-.dice {
-  position: absolute;
-  top: 50;
-  left: 20px;
-  left: 50;
-  height: 20px;
-  font-size: 80px;
-  transition: all .2s ease-in;
+.mastermind {
+  float: left;
+  width: 250px;
+  text-align: center;
+  background-color: #222222;
 }
-.roll {
-  position: absolute;
-  left: 800px;
+.mastermind .case {
+  display: inline-block;
+  width: 50px;
+  height: 50px;
+  background-color: #eeeeee;
+  border-radius: 50%;
 }
-.y1 {
-  top: 100px;
+.colors {
+  float: left;
+  width: 400px;
+  height: 196px;
+  margin-left: 20px;
+  background-color: #222222;
 }
-.y2 {
-  top: 200px;
+.colors .color {
+  display: inline-block;
+  width: 100px;
+  height: 100px;
+  margin-right: -4px;
+  margin-bottom: -4px;
 }
-.y3 {
-  top: 300px;
+.colors .red {
+  background-color: #ff0000;
 }
-.y4 {
-  top: 400px;
+.colors .green {
+  background-color: #008000;
 }
-.y5 {
-  top: 500px;
+.colors .blue {
+  background-color: #0000ff;
 }
-.x1 {
-  left: 100px;
+.colors .violet {
+  background-color: #ee82ee;
 }
-.x2 {
-  left: 200px;
+.colors .yellow {
+  background-color: #ffff00;
 }
-.x3 {
-  left: 300px;
+.colors .orange {
+  background-color: #ffa500;
 }
-.x4 {
-  left: 400px;
+.colors .cyan {
+  background-color: #00ffff;
 }
-.x5 {
-  left: 500px;
+.colors .pink {
+  background-color: #ffc0cb;
 }
