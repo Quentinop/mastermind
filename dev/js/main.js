@@ -1,16 +1,16 @@
 // var
 var random_color, // random color storage for building combination
 		selected_color, // clicked color by user
-		cases_index    = 0, // try index
-		good_pos_nb    = 0,
-		good_color_nb  = 0,
-		combination    = [], // storage for final solution
-		colors         = ['red', 'green', 'blue', 'orange', 'yellow', 'violet', 'pink', 'cyan'] // possible colors
-		cases          = document.querySelectorAll('.case'), // storage for cases
-		color_picker   = document.querySelectorAll('.color'), // storage for colors
-		good_pos       = document.querySelector('.good-pos>span'), // well positioned cases in proposition
-		good_color     = document.querySelector('.good-color>span'), // found colors cases in proposition
-		validation_btn = document.querySelector('.validation'); // verify btn
+		cases_index     = 0, // try index
+		good_pos_nb     = 0,
+		good_color_nb   = 0,
+		attempt_counter = 0,
+		combination     = [], // storage for final solution
+		colors          = ['red', 'green', 'blue', 'orange', 'yellow', 'violet', 'pink', 'cyan'] // possible colors
+		cases           = document.querySelectorAll('.case'), // storage for cases
+		color_picker    = document.querySelectorAll('.color'), // storage for colors
+		validation_btn  = document.querySelector('.validation'), // verify btn
+		score_container = document.querySelector('.score'); // score
 
 
 // make a random combination based on color without dupes
@@ -90,8 +90,7 @@ function verifyCombination()
 		good_pos_nb   = 0;
 		good_color_nb = 0;
 
-		good_pos.innerHTML   = good_pos_nb;
-		good_color.innerHTML = good_color_nb;
+		attempt_counter++;
 
 		for(var i = cases_index; i < cases_index + 4; i++)
 		{
@@ -101,16 +100,42 @@ function verifyCombination()
 				if(cases[i].style.backgroundColor == combination[j] && i != j + cases_index)
 				{
 					good_color_nb += 1;
-					good_color.innerHTML = good_color_nb;
 				}
 				// same color and same pos
 				 else if(cases[i].style.backgroundColor == combination[j] && i == j + cases_index)
 				{
 					good_pos_nb += 1;
-					good_pos.innerHTML = good_pos_nb;
+					
 				}
 			}
 		}
+		var attempt = document.createElement('div');
+
+		attempt.classList = 'center';
+		attempt.innerHTML = 'Attempt ' + attempt_counter;
+
+		score_container.appendChild(attempt)
+
+		var color_txt   = document.createElement('div'),
+			 	color_score = document.createElement('span');
+
+		color_txt.innerHTML   = 'found colors :';
+		color_score.innerHTML = good_color_nb;
+
+		color_txt.appendChild(color_score);
+		score_container.appendChild(color_txt);
+
+		var pos_txt   = document.createElement('div'),
+			 	pos_score = document.createElement('span');
+
+		pos_txt.innerHTML   = 'found pos :';
+		pos_score.innerHTML = good_pos_nb;
+
+		pos_txt.appendChild(pos_score);
+		score_container.appendChild(pos_txt);
+
+		score_container.style.opacity = 1;
+
 		resetEventListener();
 	});
 }
