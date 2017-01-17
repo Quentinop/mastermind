@@ -60,3 +60,10 @@
   cursor: pointer;
   background-color: #222222;
 }
+.score {
+  display: inline-block;
+  padding: 10px 20px;
+  margin-left: 20px;
+  color: #eeeeee;
+  background-color: #222222;
+}
